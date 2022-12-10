@@ -1,0 +1,231 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8053,        221]
+NotebookOptionsPosition[      6747,        191]
+NotebookOutlinePosition[      7155,        208]
+CellTagsIndexPosition[      7112,        205]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f1", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"f2", "[", 
+   RowBox[{"x", ",", "y"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f2", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "z", "}"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"x", "\[GreaterEqual]", "0"}], ",", 
+       RowBox[{"z", "=", 
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "+", 
+         RowBox[{"y", "^", "3"}], "+", "1"}]}], ",", 
+       RowBox[{"z", "=", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", "x", "]"}], "+", 
+         RowBox[{"y", "^", "2"}]}]}]}], "]"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.879630467431724*^9, 3.879630478276174*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"74ef4a93-94d1-42f9-9e26-126fdab3a654"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"f2", "[", 
+    RowBox[{"x", ",", "y"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.879630492576181*^9, 3.8796305005708838`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"cdf354a0-d840-4b2d-9371-ec6de525c49e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FindMinimum", "nrnum", 
+   "\"\:95a2\:6570\:306e\:5024\\!\\(\\*RowBox[{RowBox[{\\\"0.\
+030948318508539522`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.08708314169034911`\\\", \\\" \\\", \\\"\[ImaginaryI]\\\"}]}]\\)\
+\:306f\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"x\\\", \\\",\\\", \\\"y\\\"}], \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.0075834735666614195`\\\"}], \\\",\\\", \\\"0.175921341822246`\\\"}], \\\
+\"}\\\"}]\\)\:306b\:304a\:3044\:3066\:5b9f\:6570\:3067\:306f\:3042\:308a\:307e\
+\:305b\:3093\:ff0e\"", 2, 4, 2, 21756604487371340972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.879630501393197*^9},
+ CellLabel->
+  "\:8a55\:4fa1\:4e2d\:ff1aIn[4]:=",ExpressionUUID->"18aef6d9-1de3-4df3-a0b8-\
+0b6256ae8477"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.035347869724584`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.14258341513952066`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.24671893730282582`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.87963050146109*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"1616042f-2514-4512-9e57-7175791432d9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"f1", "[", 
+    RowBox[{"x", ",", "y"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8796306177671013`*^9, 3.8796306262346983`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"10517653-f115-44f7-807c-7fae4f3b7cb1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FindMinimum", "nrnum", 
+   "\"\:95a2\:6570\:306e\:5024\\!\\(\\*RowBox[{RowBox[{\\\"0.\
+030948318508539522`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.08708314169034911`\\\", \\\" \\\", \\\"\[ImaginaryI]\\\"}]}]\\)\
+\:306f\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"x\\\", \\\",\\\", \\\"y\\\"}], \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.0075834735666614195`\\\"}], \\\",\\\", \\\"0.175921341822246`\\\"}], \\\
+\"}\\\"}]\\)\:306b\:304a\:3044\:3066\:5b9f\:6570\:3067\:306f\:3042\:308a\:307e\
+\:305b\:3093\:ff0e\"", 2, 6, 4, 21756604487371340972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.879630627143714*^9},
+ CellLabel->
+  "\:8a55\:4fa1\:4e2d\:ff1aIn[6]:=",ExpressionUUID->"92ed851b-941c-400c-a3e6-\
+8ecacd038e64"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.035347869724584`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.14258341513952066`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.24671893730282582`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.8796306271560698`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"bba2ed79-a063-40ff-ad05-35ad23232de1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"x", "\[GreaterEqual]", "0"}], ",", 
+     RowBox[{"z", "=", 
+      RowBox[{
+       RowBox[{"x", "^", "2"}], "+", 
+       RowBox[{"y", "^", "3"}], "+", "1"}]}], ",", 
+     RowBox[{"z", "=", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "x", "]"}], "+", 
+       RowBox[{"y", "^", "2"}]}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.879630518182362*^9, 3.879630518189391*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"fb0f8721-6449-4456-add2-dd72bbc54116"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FindMinimum", "nrnum", 
+   "\"\:95a2\:6570\:306e\:5024\\!\\(\\*RowBox[{RowBox[{\\\"0.\
+030948318508539522`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"+\\\", \
+RowBox[{\\\"0.08708314169034911`\\\", \\\" \\\", \\\"\[ImaginaryI]\\\"}]}]\\)\
+\:306f\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"x\\\", \\\",\\\", \\\"y\\\"}], \
+\\\"}\\\"}]\\) = \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"-\\\", \
+\\\"0.0075834735666614195`\\\"}], \\\",\\\", \\\"0.175921341822246`\\\"}], \\\
+\"}\\\"}]\\)\:306b\:304a\:3044\:3066\:5b9f\:6570\:3067\:306f\:3042\:308a\:307e\
+\:305b\:3093\:ff0e\"", 2, 5, 3, 21756604487371340972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.879630520868999*^9},
+ CellLabel->
+  "\:8a55\:4fa1\:4e2d\:ff1aIn[5]:=",ExpressionUUID->"b7e0f4da-0eb8-4963-8f1b-\
+d28d9c402b62"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.035347869724584`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.14258341513952066`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.24671893730282582`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.879630520879849*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"9dbb356a-a9e9-4a9b-98a9-5fd9cfa6e1e2"]
+}, Open  ]]
+},
+WindowSize->{808, 747},
+WindowMargins->{{181, Automatic}, {Automatic, 15}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) \
+(2020\:5e746\:670822\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0f7cd1a1-0ad5-4b47-a18c-e593bc5d2189"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 861, 25, 65, "Input",ExpressionUUID->"74ef4a93-94d1-42f9-9e26-126fdab3a654"],
+Cell[CellGroupData[{
+Cell[1444, 49, 443, 12, 44, "Input",ExpressionUUID->"cdf354a0-d840-4b2d-9371-ec6de525c49e"],
+Cell[1890, 63, 829, 15, 24, "Message",ExpressionUUID->"18aef6d9-1de3-4df3-a0b8-0b6256ae8477"],
+Cell[2722, 80, 363, 9, 34, "Output",ExpressionUUID->"1616042f-2514-4512-9e57-7175791432d9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3122, 94, 445, 12, 44, "Input",ExpressionUUID->"10517653-f115-44f7-807c-7fae4f3b7cb1"],
+Cell[3570, 108, 829, 15, 24, "Message",ExpressionUUID->"92ed851b-941c-400c-a3e6-8ecacd038e64"],
+Cell[4402, 125, 366, 9, 34, "Output",ExpressionUUID->"bba2ed79-a063-40ff-ad05-35ad23232de1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4805, 139, 727, 21, 44, "Input",ExpressionUUID->"fb0f8721-6449-4456-add2-dd72bbc54116"],
+Cell[5535, 162, 829, 15, 24, "Message",ExpressionUUID->"b7e0f4da-0eb8-4963-8f1b-d28d9c402b62"],
+Cell[6367, 179, 364, 9, 34, "Output",ExpressionUUID->"9dbb356a-a9e9-4a9b-98a9-5fd9cfa6e1e2"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
