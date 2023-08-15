@@ -1,0 +1,3478 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    185709,       3470]
+NotebookOptionsPosition[    182517,       3408]
+NotebookOutlinePosition[    182964,       3426]
+CellTagsIndexPosition[    182921,       3423]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:96a3\:63a5\:884c\:5217\:3068\:305d\:306eEigen", "Title",
+ CellChangeTimes->{{3.89450563061939*^9, 
+  3.894505655655135*^9}},ExpressionUUID->"f219508f-9d3a-4e15-9f2f-\
+df42d9d58bb1"],
+
+Cell["\:5143\:30c7\:30fc\:30bf\:3092\:30e9\:30f3\:30c0\:30e0\:306b\:4f5c\:6210\
+", "Text",
+ CellChangeTimes->{{3.894505929078199*^9, 
+  3.8945059428171463`*^9}},ExpressionUUID->"4a98f17d-1a60-442e-b2ef-\
+f70c7ff13875"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RandomGraph", "[", 
+  RowBox[{"{", 
+   RowBox[{"6", ",", "5"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8945059007723083`*^9, 3.894505915756782*^9}},
+ CellLabel->
+  "(Local) In[121]:=",ExpressionUUID->"2a3171b8-3adc-4b10-af28-a301361c65a9"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5, 6}, {Null, 
+       SparseArray[
+       Automatic, {6, 6}, 0, {
+        1, {{0, 0, 2, 5, 7, 9, 10}, {{3}, {6}, {2}, {4}, {5}, {3}, {5}, {3}, {
+          4}, {2}}}, Pattern}]}]]}, 
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{0.24336840979085217`, -1.4876854475273111`}, {
+       1.2718284322894609`, -0.6225106868598653}, {
+       2.4770616605131677`, -0.6223427426439279}, {
+       3.379522748289732, -0.24336840979085217`}, {
+       3.3794777576724084`, -1.0009486279456068`}, {
+       0.24336840979085217`, -0.6220189254092571}}, {
+        {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.], 
+         ArrowBox[{{2, 3}, {2, 6}, {3, 4}, {3, 5}, {4, 5}}, 
+          0.031208026501239522`]}, 
+        {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.031208026501239522], DiskBox[2, 0.031208026501239522], 
+         DiskBox[3, 0.031208026501239522], DiskBox[4, 0.031208026501239522], 
+         DiskBox[5, 0.031208026501239522], 
+         DiskBox[6, 0.031208026501239522]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.894505911316383*^9, 3.894505916162518*^9}},
+ CellLabel->
+  "(Local) Out[121]=",ExpressionUUID->"3910ebad-e3df-4816-8a0c-338456e90e2e"]
+}, Open  ]],
+
+Cell["\:30b0\:30e9\:30d5\:3092\:4fee\:6b63\:3057\:30662\:30b0\:30eb\:30fc\
+\:30d7\:306b\:5206\:304b\:308c\:308b\:3088\:3046\:306b", "Text",
+ CellChangeTimes->{{3.894505946940651*^9, 
+  3.894505972463443*^9}},ExpressionUUID->"6d3482e7-7252-44e5-b8b6-\
+888d117d8580"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0"}], "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1"}], "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1"}], "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}],
+    "}"}]}]], "Input",
+ CellChangeTimes->{{3.8945051622430964`*^9, 3.8945051625470543`*^9}, {
+  3.894505238457096*^9, 3.894505269449677*^9}, {3.894505300480609*^9, 
+  3.894505336647627*^9}},
+ CellLabel->
+  "(Local) In[108]:=",ExpressionUUID->"61e31880-0a3c-44c0-bfb8-93c8cc813876"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.894505241454808*^9, 3.89450526979323*^9}, {
+  3.894505308092004*^9, 3.894505349644597*^9}},
+ CellLabel->
+  "(Local) Out[108]=",ExpressionUUID->"5ca81626-b43c-422c-ace8-6c751fbaf950"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"g", "=", 
+  RowBox[{"AdjacencyGraph", "[", 
+   RowBox[{"m", ",", 
+    RowBox[{"VertexLabels", "->", "Automatic"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.894505167227215*^9, 3.894505212412807*^9}, {
+  3.894505356687203*^9, 3.894505357179007*^9}},
+ CellLabel->
+  "(Local) In[110]:=",ExpressionUUID->"9f0c1f76-b719-4869-a5d0-1b26162a099a"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5, 6}, {
+      SparseArray[
+       Automatic, {6, 6}, 0, {
+        1, {{0, 2, 4, 6, 7, 9, 10}, {{3}, {4}, {5}, {6}, {1}, {4}, {1}, {5}, {
+          6}, {2}}}, {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}], Null}, {
+      VertexLabels -> {Automatic}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{2.308709660364059, -1.133778000850974}, {
+          2.4181282964238986`, -0.6189300912510067}, {
+          2.811781097596568, -0.2695330677010237}}], 0.026785309798155313`], 
+        ArrowBox[
+         BezierCurveBox[{{2.308709660364059, -1.133778000850974}, {
+          1.9175476938428817`, -0.7815947523576086}, {
+          1.8117874491203425`, -0.26598298444666313`}}], 
+         0.026785309798155313`], 
+        ArrowBox[{{0.2799503254403325, -0.26598298444666324`}, {
+         0.7659829844466631, -1.1399235749323835`}}, 0.026785309798155313`], 
+        ArrowBox[
+         BezierCurveBox[{{0.2799503254403325, -0.26598298444666324`}, {
+          0.7825257765793361, -0.10959024828213193`}, {
+          1.2798214802270165`, -0.2820366316775331}}], 0.026785309798155313`],
+         ArrowBox[
+         BezierCurveBox[{{2.811781097596568, -0.2695330677010237}, {
+          2.7023624615367257`, -0.7843809773009758}, {
+          2.308709660364059, -1.133778000850974}}], 0.026785309798155313`], 
+        ArrowBox[{{2.811781097596568, -0.2695330677010237}, {
+         1.8117874491203425`, -0.26598298444666313`}}, 0.026785309798155313`],
+         ArrowBox[
+         BezierCurveBox[{{1.8117874491203425`, -0.26598298444666313`}, {
+          2.2029494156415033`, -0.6181662329400135}, {
+          2.308709660364059, -1.133778000850974}}], 0.026785309798155313`], 
+        ArrowBox[
+         BezierCurveBox[{{0.7659829844466631, -1.1399235749323835`}, {
+          0.955321512005473, -1.2314542083804527`}, {
+          1.0085177527883584`, -1.4312124246267774`}, {
+          0.9475267136192629, -1.5574201819476485`}, {
+          0.5711298335537075, -1.5513768433095345`}, {
+          0.5142219106323443, -1.423276128340155}, {
+          0.5738036193353082, -1.225328647983927}, {
+          0.7659829844466631, -1.1399235749323835`}},
+          SplineDegree->7], 0.026785309798155313`], 
+        ArrowBox[{{0.7659829844466631, -1.1399235749323835`}, {
+         1.2798214802270165`, -0.2820366316775331}}, 0.026785309798155313`], 
+        ArrowBox[
+         BezierCurveBox[{{1.2798214802270165`, -0.2820366316775331}, {
+          0.7772460290880169, -0.4384293678420651}, {
+          0.2799503254403325, -0.26598298444666324`}}], 
+         0.026785309798155313`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{2.308709660364059, -1.133778000850974}, 
+          0.026785309798155313], 
+         InsetBox["1", 
+          Offset[{2, 2}, {2.3354949701622143, -1.1069926910528185}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.2799503254403325, -0.26598298444666324}, 
+          0.026785309798155313], 
+         InsetBox["2", 
+          Offset[{2, 2}, {0.3067356352384878, -0.23919767464850794}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.811781097596568, -0.2695330677010237}, 
+          0.026785309798155313], 
+         InsetBox["3", 
+          Offset[{2, 2}, {2.8385664073947234, -0.2427477579028684}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.8117874491203425, -0.26598298444666313}, 
+          0.026785309798155313], 
+         InsetBox["4", 
+          Offset[{2, 2}, {1.838572758918498, -0.23919767464850783}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7659829844466631, -1.1399235749323835}, 
+          0.026785309798155313], 
+         InsetBox["5", 
+          Offset[{2, 2}, {0.7927682942448184, -1.113138265134228}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.2798214802270165, -0.2820366316775331}, 
+          0.026785309798155313], 
+         InsetBox["6", 
+          Offset[{2, 2}, {1.3066067900251719, -0.2552513218793778}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.894505177401486*^9, 3.894505213247691*^9}, {
+  3.894505244403146*^9, 3.894505271638728*^9}, {3.8945053105185947`*^9, 
+  3.894505357760414*^9}},
+ CellLabel->
+  "(Local) Out[110]=",ExpressionUUID->"add60175-325f-45d3-8826-c33b757830ca"]
+}, Open  ]],
+
+Cell["\:56fa\:6709\:30d9\:30af\:30c8\:30eb\:3092\:5ea7\:6a19\:3068\:3057\:305f\
+\:5834\:5408\:3001\:30ea\:30f3\:30af\:304c\:5f37\:3044\:30b0\:30eb\:30fc\:30d7\
+\:304c\:8fd1\:304f\:306a\:308b\:306f\:305a\:3002", "Text",
+ CellChangeTimes->{{3.894505986020454*^9, 
+  3.8945060396067667`*^9}},ExpressionUUID->"a7e06363-b023-42f4-8779-\
+f8281b950b7a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ev", "=", 
+  RowBox[{"Eigenvectors", "[", "m", "]"}]}]], "Input",
+ CellChangeTimes->{{3.894505369047065*^9, 3.894505392748917*^9}},
+ CellLabel->
+  "(Local) In[113]:=",ExpressionUUID->"a6047f0d-f9d5-4ba7-8df3-1da145afd7d4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.894505375936955*^9, 3.8945053932651863`*^9}},
+ CellLabel->
+  "(Local) Out[113]=",ExpressionUUID->"3b4f534f-ff3f-4921-9d05-204fb08752bf"]
+}, Open  ]],
+
+Cell["\:56fa\:6709\:30d9\:30af\:30c8\:30eb\:3092Transpose\:3059\:308b\:3068\
+\:5ea7\:6a19\:306b\:306a\:308b\:ff1a", "Text",
+ CellChangeTimes->{{3.894505986020454*^9, 3.894506087387988*^9}, 
+   3.894509645444426*^9},ExpressionUUID->"630a0b4c-47d8-4098-ba25-\
+48eaad869c2a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ep", "=", 
+  RowBox[{"Transpose", "[", "ev", "]"}]}]], "Input",
+ CellChangeTimes->{{3.894505396775968*^9, 3.894505403312077*^9}},
+ CellLabel->
+  "(Local) In[114]:=",ExpressionUUID->"3ad06b21-50aa-4e7e-a288-a2929fee21c2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", 
+     RowBox[{"-", "1"}], ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", "0", ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SqrtBox["5"]}], ")"}]}], ",", "0", ",", 
+     RowBox[{"-", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.894505403620932*^9},
+ CellLabel->
+  "(Local) Out[114]=",ExpressionUUID->"34e1b5f6-0669-48f0-95ca-61783229f455"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ep2", "=", 
+  RowBox[{
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ";;", "2"}], "]"}], "]"}], "&"}], ",", "ep"}], "]"}], "//",
+    "N"}]}]], "Input",
+ CellChangeTimes->{{3.8945054078910437`*^9, 3.894505438950486*^9}, {
+  3.894505549318802*^9, 3.894505551028716*^9}},
+ CellLabel->
+  "(Local) In[116]:=",ExpressionUUID->"2918185e-8bf4-4784-99ee-79468007bfe5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "1.618033988749895`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.618033988749895`", ",", "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "1.618033988749895`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.618033988749895`", ",", "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "0.`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.894505440193227*^9, 3.8945055515033407`*^9},
+ CellLabel->
+  "(Local) Out[116]=",ExpressionUUID->"d2094208-c8aa-4e8f-b343-383274419855"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics", "[", 
+  RowBox[{"MapIndexed", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Text", "[", 
+      RowBox[{"#", ",", "#"}], "]"}], "&"}], ",", "ep2"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.894505442560957*^9, 3.894505444137344*^9}, {
+  3.894505510125657*^9, 3.894505512658196*^9}, {3.8945056059365683`*^9, 
+  3.894505607640699*^9}, {3.8945057647903748`*^9, 3.894505810170175*^9}, {
+  3.894506226690016*^9, 3.894506250109447*^9}},
+ CellLabel->
+  "(Local) In[123]:=",ExpressionUUID->"a9b2d279-34f4-4fd6-87ea-4b3c6e190f97"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    RowBox[{"{", 
+     RowBox[{"0.`", ",", "1.618033988749895`"}], 
+     "}"}], {0., 1.618033988749895}], InsetBox[
+    RowBox[{"{", 
+     RowBox[{"1.618033988749895`", ",", "0.`"}], 
+     "}"}], {1.618033988749895, 0.}], InsetBox[
+    RowBox[{"{", 
+     RowBox[{"0.`", ",", "1.618033988749895`"}], 
+     "}"}], {0., 1.618033988749895}], InsetBox[
+    RowBox[{"{", 
+     RowBox[{"0.`", ",", "1.`"}], "}"}], {0., 1.}], InsetBox[
+    RowBox[{"{", 
+     RowBox[{"1.618033988749895`", ",", "0.`"}], 
+     "}"}], {1.618033988749895, 0.}], InsetBox[
+    RowBox[{"{", 
+     RowBox[{"1.`", ",", "0.`"}], "}"}], {1., 0.}]}]], "Output",
+ CellChangeTimes->{{3.894505773190001*^9, 3.894505810452545*^9}, {
+  3.894506229750245*^9, 3.894506251143222*^9}},
+ CellLabel->
+  "(Local) Out[123]=",ExpressionUUID->"0fd1510c-d03b-4966-bd14-5c2235165931"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics", "[", 
+  RowBox[{"MapIndexed", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Text", "[", 
+      RowBox[{"#2", ",", "#"}], "]"}], "&"}], ",", "ep2"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8945063028135633`*^9, 3.894506320710862*^9}},
+ CellLabel->
+  "(Local) In[126]:=",ExpressionUUID->"2ff2f8f0-f5e7-4855-9028-784508511543"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    RowBox[{"{", "1", "}"}], {0., 1.618033988749895}], InsetBox[
+    RowBox[{"{", "2", "}"}], {1.618033988749895, 0.}], InsetBox[
+    RowBox[{"{", "3", "}"}], {0., 1.618033988749895}], InsetBox[
+    RowBox[{"{", "4", "}"}], {0., 1.}], InsetBox[
+    RowBox[{"{", "5", "}"}], {1.618033988749895, 0.}], InsetBox[
+    RowBox[{"{", "6", "}"}], {1., 0.}]}]], "Output",
+ CellChangeTimes->{
+  3.894506260279086*^9, {3.8945063040336943`*^9, 3.894506321094561*^9}},
+ CellLabel->
+  "(Local) Out[126]=",ExpressionUUID->"d9a6a26f-c657-47a1-ac1b-f7b507eaa596"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:53c2\:8003", "Section",
+ CellChangeTimes->{{3.894506917571272*^9, 
+  3.8945069262977943`*^9}},ExpressionUUID->"5434a2c3-cf37-41f7-be9b-\
+b9a7ef0436ba"],
+
+Cell["GNN/GCN", "Text",
+ CellChangeTimes->{{3.894506937807966*^9, 
+  3.894506948210973*^9}},ExpressionUUID->"39567308-75aa-4e4f-989a-\
+7ce99eaddd07"],
+
+Cell["https://qiita.com/omiita/items/429136c2f4e228d745ed", "Text",
+ CellChangeTimes->{{3.894506956197041*^9, 
+  3.894506965609208*^9}},ExpressionUUID->"b4079c82-9070-4a9c-92db-\
+9e1b7997887f"],
+
+Cell["\<\
+https://github.com/omiita/PyTorchGeometric-Tutorial/blob/master/PyTorch_\
+Geometric_Tutorial.ipynb\
+\>", "Text",
+ CellChangeTimes->{
+  3.894609647080237*^9},ExpressionUUID->"6d5cde4a-92fd-4f39-b594-\
+946238ece6b5"],
+
+Cell["\<\
+(base) uname -a
+Linux localhost.localdomain 3.10.0-1160.83.1.el7.x86_64 #1 SMP Wed Jan 25 \
+16:41:43 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+(base) pip --version
+pip 22.2.2 from /home/amano/miniconda3/lib/python3.9/site-packages/pip \
+(python 3.9)
+(base) pip install torch
+Collecting torch
+  Downloading torch-2.0.1-cp39-cp39-manylinux1_x86_64.whl (619.9 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501 \
+619.9/619.9 MB 358.5 kB/s eta 0:00:00
+Collecting nvidia-cudnn-cu11==8.5.0.96
+  Downloading nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl \
+(557.1 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501 \
+557.1/557.1 MB 415.4 kB/s eta 0:00:00
+Collecting nvidia-cusolver-cu11==11.4.0.1
+  Downloading nvidia_cusolver_cu11-11.4.0.1-2-py3-none-manylinux1_x86_64.whl \
+(102.6 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 102.6/102.6 MB 2.8 MB/s eta 0:00:00
+Collecting sympy
+  Downloading sympy-1.12-py3-none-any.whl (5.7 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 5.7/5.7 MB 9.9 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions in \
+./miniconda3/lib/python3.9/site-packages (from torch) (4.3.0)
+Collecting nvidia-cuda-runtime-cu11==11.7.99
+  Downloading nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl \
+(849 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 849.3/849.3 kB 8.6 MB/s eta 0:00:00
+Collecting nvidia-cublas-cu11==11.10.3.66
+  Downloading nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl \
+(317.1 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501 \
+317.1/317.1 MB 559.1 kB/s eta 0:00:00
+Collecting filelock
+  Downloading filelock-3.12.0-py3-none-any.whl (10 kB)
+Collecting nvidia-curand-cu11==10.2.10.91
+  Downloading nvidia_curand_cu11-10.2.10.91-py3-none-manylinux1_x86_64.whl \
+(54.6 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 54.6/54.6 MB 4.7 MB/s eta 0:00:00
+Collecting nvidia-nvtx-cu11==11.7.91
+  Downloading nvidia_nvtx_cu11-11.7.91-py3-none-manylinux1_x86_64.whl (98 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 98.6/98.6 kB 11.9 MB/s eta 0:00:00
+Collecting triton==2.0.0
+  Downloading \
+triton-2.0.0-1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 \
+MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 63.3/63.3 MB 4.4 MB/s eta 0:00:00
+Collecting networkx
+  Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 2.1/2.1 MB 10.2 MB/s eta 0:00:00
+Requirement already satisfied: jinja2 in \
+./miniconda3/lib/python3.9/site-packages (from torch) (3.1.2)
+Collecting nvidia-nccl-cu11==2.14.3
+  Downloading nvidia_nccl_cu11-2.14.3-py3-none-manylinux1_x86_64.whl (177.1 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 177.1/177.1 MB 1.1 MB/s eta 0:00:00
+Collecting nvidia-cuda-cupti-cu11==11.7.101
+  Downloading nvidia_cuda_cupti_cu11-11.7.101-py3-none-manylinux1_x86_64.whl \
+(11.8 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 11.8/11.8 MB 9.7 MB/s eta 0:00:00
+Collecting nvidia-cusparse-cu11==11.7.4.91
+  Downloading nvidia_cusparse_cu11-11.7.4.91-py3-none-manylinux1_x86_64.whl \
+(173.2 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 173.2/173.2 MB 2.0 MB/s eta 0:00:00
+Collecting nvidia-cuda-nvrtc-cu11==11.7.99
+  Downloading nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl \
+(21.0 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 21.0/21.0 MB 8.1 MB/s eta 0:00:00
+Collecting nvidia-cufft-cu11==10.9.0.58
+  Downloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux1_x86_64.whl \
+(168.4 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 168.4/168.4 MB 1.7 MB/s eta 0:00:00
+Requirement already satisfied: wheel in \
+./miniconda3/lib/python3.9/site-packages (from \
+nvidia-cublas-cu11==11.10.3.66->torch) (0.37.1)
+Requirement already satisfied: setuptools in \
+./miniconda3/lib/python3.9/site-packages (from \
+nvidia-cublas-cu11==11.10.3.66->torch) (65.5.0)
+Collecting cmake
+  Downloading \
+cmake-3.26.3-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl \
+(24.0 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 24.0/24.0 MB 7.2 MB/s eta 0:00:00
+Collecting lit
+  Downloading lit-16.0.5.tar.gz (138 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+ 138.0/138.0 kB 10.7 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: MarkupSafe>=2.0 in \
+./miniconda3/lib/python3.9/site-packages (from jinja2->torch) (2.1.1)
+Collecting mpmath>=0.19
+  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 536.2/536.2 kB 8.9 MB/s eta 0:00:00
+Building wheels for collected packages: lit
+  Building wheel for lit (setup.py) ... done
+  Created wheel for lit: filename=lit-16.0.5-py3-none-any.whl size=88177 \
+sha256=715ecabc8630099cd2892f4d565726226c00392658288fb537183cb020e012f4
+  Stored in directory: \
+/home/amano/.cache/pip/wheels/d8/3a/a1/\
+643264c1075b22759205027b760e0b1e85d975bfb333eef328
+Successfully built lit
+Installing collected packages: mpmath, lit, cmake, sympy, nvidia-nvtx-cu11, \
+nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, \
+nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, \
+nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, networkx, filelock, \
+nvidia-cusolver-cu11, nvidia-cudnn-cu11, triton, torch
+Successfully installed cmake-3.26.3 filelock-3.12.0 lit-16.0.5 mpmath-1.3.0 \
+networkx-3.1 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-cupti-cu11-11.7.101 \
+nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 \
+nvidia-cudnn-cu11-8.5.0.96 nvidia-cufft-cu11-10.9.0.58 \
+nvidia-curand-cu11-10.2.10.91 nvidia-cusolver-cu11-11.4.0.1 \
+nvidia-cusparse-cu11-11.7.4.91 nvidia-nccl-cu11-2.14.3 \
+nvidia-nvtx-cu11-11.7.91 sympy-1.12 torch-2.0.1 triton-2.0.0
+(base) python 
+Python 3.9.13 (main, Oct 13 2022, 21:15:33) 
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type \[OpenCurlyDoubleQuote]help\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]copyright\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]credits\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]license\[CloseCurlyDoubleQuote] for more information.
+>>> import torch; print(torch.__version__)
+2.0.1+cu117
+>>> quit()
+(base) pip install --verbose --no-cache-dir torch-scatter
+Using pip 22.2.2 from /home/amano/miniconda3/lib/python3.9/site-packages/pip \
+(python 3.9)
+Collecting torch-scatter
+  Downloading torch_scatter-2.1.1.tar.gz (107 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+ 107.6/107.6 kB 11.2 MB/s eta 0:00:00
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info
+  writing /tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/PKG-INFO
+  writing dependency_links to \
+/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/dependency_links.txt
+  writing requirements to \
+/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/requires.txt
+  writing top-level names to \
+/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/top_level.txt
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  reading manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ddh0e2ov/torch_scatter.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: torch-scatter
+  Running command python setup.py bdist_wheel
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-cpython-39
+  creating build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/__init__.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/placeholder.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/scatter.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/segment_coo.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/segment_csr.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/testing.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  copying torch_scatter/utils.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter
+  creating build/lib.linux-x86_64-cpython-39/torch_scatter/composite
+  copying torch_scatter/composite/__init__.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite
+  copying torch_scatter/composite/logsumexp.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite
+  copying torch_scatter/composite/softmax.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite
+  copying torch_scatter/composite/std.py -> \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite
+  running egg_info
+  writing torch_scatter.egg-info/PKG-INFO
+  writing dependency_links to torch_scatter.egg-info/dependency_links.txt
+  writing requirements to torch_scatter.egg-info/requires.txt
+  writing top-level names to torch_scatter.egg-info/top_level.txt
+  reading manifest file \[OpenCurlyQuote]torch_scatter.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \[OpenCurlyQuote]torch_scatter.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  running build_ext
+  building \[OpenCurlyQuote]torch_scatter._scatter_cpu\[CloseCurlyQuote] \
+extension
+  creating build/temp.linux-x86_64-cpython-39
+  creating build/temp.linux-x86_64-cpython-39/csrc
+  creating build/temp.linux-x86_64-cpython-39/csrc/cpu
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/scatter_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/scatter_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_scatter_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/scatter.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/scatter.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_scatter_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/scatter_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/scatter.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_scatter/_scatter_cpu.so -s
+  building \[OpenCurlyQuote]torch_scatter._segment_coo_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/segment_coo_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/segment_coo_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_segment_coo_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/segment_coo.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/segment_coo.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_segment_coo_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/segment_coo_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/segment_coo.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_scatter/_segment_coo_cpu.so -s
+  building \[OpenCurlyQuote]torch_scatter._segment_csr_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/segment_csr_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/segment_csr_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_segment_csr_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/segment_csr.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/segment_csr.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_segment_csr_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/segment_csr_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/segment_csr.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_scatter/_segment_csr_cpu.so -s
+  building \[OpenCurlyQuote]torch_scatter._version_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/version.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/version.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_version_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/version.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_scatter/_version_cpu.so -s
+  /home/amano/miniconda3/lib/python3.9/site-packages/setuptools/command/\
+install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. \
+Use build and pip and other standards-based tools.
+    warnings.warn(
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/__init__.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/placeholder.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/scatter.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/segment_coo.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/segment_csr.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/testing.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/utils.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  creating build/bdist.linux-x86_64/wheel/torch_scatter/composite
+  copying \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite/__init__.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter/composite
+  copying \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite/logsumexp.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter/composite
+  copying \
+build/lib.linux-x86_64-cpython-39/torch_scatter/composite/softmax.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter/composite
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/composite/std.py -> \
+build/bdist.linux-x86_64/wheel/torch_scatter/composite
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/_scatter_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/_segment_coo_cpu.so \
+-> build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/_segment_csr_cpu.so \
+-> build/bdist.linux-x86_64/wheel/torch_scatter
+  copying build/lib.linux-x86_64-cpython-39/torch_scatter/_version_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_scatter
+  running install_egg_info
+  Copying torch_scatter.egg-info to \
+build/bdist.linux-x86_64/wheel/torch_scatter-2.1.1-py3.9.egg-info
+  running install_scripts
+  adding license file \[OpenCurlyDoubleQuote]LICENSE\[CloseCurlyDoubleQuote] \
+(matched pattern \[OpenCurlyDoubleQuote]LICEN[CS]E*\[CloseCurlyDoubleQuote])
+  creating build/bdist.linux-x86_64/wheel/torch_scatter-2.1.1.dist-info/WHEEL
+  creating \
+\[OpenCurlyQuote]/tmp/pip-wheel-lr4ogji8/torch_scatter-2.1.1-cp39-cp39-linux_\
+x86_64.whl\[CloseCurlyQuote] and adding \
+\[OpenCurlyQuote]build/bdist.linux-x86_64/wheel\[CloseCurlyQuote] to it
+  adding \[OpenCurlyQuote]torch_scatter/__init__.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/_scatter_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/_segment_coo_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/_segment_csr_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/_version_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/placeholder.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/scatter.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/segment_coo.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/segment_csr.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/testing.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/utils.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/composite/__init__.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/composite/logsumexp.py\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter/composite/softmax.py\[CloseCurlyQuote]\
+
+  adding \[OpenCurlyQuote]torch_scatter/composite/std.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter-2.1.1.dist-info/LICENSE\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter-2.1.1.dist-info/METADATA\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter-2.1.1.dist-info/WHEEL\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter-2.1.1.dist-info/top_level.txt\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_scatter-2.1.1.dist-info/RECORD\
+\[CloseCurlyQuote]
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for torch-scatter (setup.py) ... done
+  Created wheel for torch-scatter: \
+filename=torch_scatter-2.1.1-cp39-cp39-linux_x86_64.whl size=518188 \
+sha256=a460f9f8c853e3c341660a8e5b9f5da0333802c9eae26072cdc2c3ac5eaa6e48
+  Stored in directory: \
+/tmp/pip-ephem-wheel-cache-vune0821/wheels/d5/0c/18/\
+11b4cf31446c5d460543b0fff930fcac3a3f8a785e5c73fb15
+Successfully built torch-scatter
+Installing collected packages: torch-scatter
+Successfully installed torch-scatter-2.1.1
+(base) pip install --verbose --no-cache-dir torch-sparse
+Using pip 22.2.2 from /home/amano/miniconda3/lib/python3.9/site-packages/pip \
+(python 3.9)
+Collecting torch-sparse
+  Downloading torch_sparse-0.6.17.tar.gz (209 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+ 209.2/209.2 kB 10.0 MB/s eta 0:00:00
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info
+  writing /tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/PKG-INFO
+  writing dependency_links to \
+/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/dependency_links.txt
+  writing requirements to \
+/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/requires.txt
+  writing top-level names to \
+/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/top_level.txt
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/SOURCES.\
+txt\[CloseCurlyQuote]
+  reading manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/SOURCES.\
+txt\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/css\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/html\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/tests\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/examples\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/benchmark\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]benchmark\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-mwofgy8c/torch_sparse.egg-info/SOURCES.\
+txt\[CloseCurlyQuote]
+  Preparing metadata (setup.py) ... done
+Collecting scipy
+  Downloading \
+scipy-1.10.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 34.5/34.5 MB 10.6 MB/s eta 0:00:00
+Collecting numpy<1.27.0,>=1.19.5
+  Downloading \
+numpy-1.24.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 17.3/17.3 MB 11.1 MB/s eta 0:00:00
+Building wheels for collected packages: torch-sparse
+  Running command python setup.py bdist_wheel
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-cpython-39
+  creating build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/__init__.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/add.py -> build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/bandwidth.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/cat.py -> build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/coalesce.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/convert.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/diag.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/eye.py -> build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/index_select.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/masked_select.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/matmul.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/metis.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/mul.py -> build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/narrow.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/permute.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/reduce.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/rw.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/saint.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/sample.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/select.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/spadd.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/spmm.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/spspmm.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/storage.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/tensor.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/testing.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/transpose.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/typing.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  copying torch_sparse/utils.py -> \
+build/lib.linux-x86_64-cpython-39/torch_sparse
+  running egg_info
+  writing torch_sparse.egg-info/PKG-INFO
+  writing dependency_links to torch_sparse.egg-info/dependency_links.txt
+  writing requirements to torch_sparse.egg-info/requires.txt
+  writing top-level names to torch_sparse.egg-info/top_level.txt
+  reading manifest file \[OpenCurlyQuote]torch_sparse.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/css\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/html\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/tests\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/examples\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \
+\[OpenCurlyQuote]third_party/parallel-hashmap/benchmark\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]benchmark\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \[OpenCurlyQuote]torch_sparse.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  running build_ext
+  building \[OpenCurlyQuote]torch_sparse._convert_cpu\[CloseCurlyQuote] \
+extension
+  creating build/temp.linux-x86_64-cpython-39
+  creating build/temp.linux-x86_64-cpython-39/csrc
+  creating build/temp.linux-x86_64-cpython-39/csrc/cpu
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/convert.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/convert.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_convert_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/convert_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/convert_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_convert_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/convert.o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/convert_cpu.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_convert_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._diag_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/diag_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/diag_cpu.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_diag_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/diag.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/diag.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_diag_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/diag_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/diag.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_diag_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._ego_sample_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/ego_sample_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/ego_sample_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_ego_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/ego_sample.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/ego_sample.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_ego_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/ego_sample_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/ego_sample.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_ego_sample_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._hgt_sample_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/hgt_sample_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/hgt_sample_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_hgt_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/hgt_sample.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/hgt_sample.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_hgt_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/hgt_sample_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/hgt_sample.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_hgt_sample_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._metis_cpu\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/metis_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/metis_cpu.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_metis_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/metis.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/metis.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_metis_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/metis_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/metis.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_metis_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._neighbor_sample_cpu\
+\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c \
+csrc/cpu/neighbor_sample_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/neighbor_sample_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_neighbor_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/neighbor_sample.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/neighbor_sample.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_neighbor_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/neighbor_sample_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/neighbor_sample.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_neighbor_sample_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._relabel_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/relabel_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/relabel_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_relabel_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/relabel.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/relabel.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_relabel_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/relabel_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/relabel.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_relabel_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._rw_cpu\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/rw_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/rw_cpu.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_rw_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/rw.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/rw.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_rw_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/rw_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/rw.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_rw_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._saint_cpu\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/saint_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/saint_cpu.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_saint_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/saint.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/saint.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_saint_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/saint_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/saint.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_saint_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._sample_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/sample_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/sample_cpu.o -O3 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/sample.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/sample.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_sample_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/sample_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/sample.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_sample_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._spmm_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/spmm_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/spmm_cpu.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_spmm_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/spmm.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/spmm.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_spmm_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/spmm_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/spmm.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_spmm_cpu.so -s
+  building \[OpenCurlyQuote]torch_sparse._version_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-Ithird_party/parallel-hashmap \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/version.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/version.o -O3 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_version_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/version.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_version_cpu.so -s
+  /home/amano/miniconda3/lib/python3.9/site-packages/setuptools/command/\
+install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. \
+Use build and pip and other standards-based tools.
+    warnings.warn(
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/__init__.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/add.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/bandwidth.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/cat.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/coalesce.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/convert.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/diag.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/eye.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/index_select.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/masked_select.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/matmul.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/metis.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/mul.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/narrow.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/permute.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/reduce.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/rw.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/saint.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/sample.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/select.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/spadd.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/spmm.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/spspmm.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/storage.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/tensor.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/testing.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/transpose.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/typing.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/utils.py -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_convert_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_diag_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_ego_sample_cpu.so \
+-> build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_hgt_sample_cpu.so \
+-> build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_metis_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying \
+build/lib.linux-x86_64-cpython-39/torch_sparse/_neighbor_sample_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_relabel_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_rw_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_saint_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_sample_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_spmm_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  copying build/lib.linux-x86_64-cpython-39/torch_sparse/_version_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_sparse
+  running install_egg_info
+  Copying torch_sparse.egg-info to \
+build/bdist.linux-x86_64/wheel/torch_sparse-0.6.17-py3.9.egg-info
+  running install_scripts
+  adding license file \[OpenCurlyDoubleQuote]LICENSE\[CloseCurlyDoubleQuote] \
+(matched pattern \[OpenCurlyDoubleQuote]LICEN[CS]E*\[CloseCurlyDoubleQuote])
+  creating build/bdist.linux-x86_64/wheel/torch_sparse-0.6.17.dist-info/WHEEL
+  creating \
+\[OpenCurlyQuote]/tmp/pip-wheel-z7yxcxj5/torch_sparse-0.6.17-cp39-cp39-linux_\
+x86_64.whl\[CloseCurlyQuote] and adding \
+\[OpenCurlyQuote]build/bdist.linux-x86_64/wheel\[CloseCurlyQuote] to it
+  adding \[OpenCurlyQuote]torch_sparse/__init__.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_convert_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_diag_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_ego_sample_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_hgt_sample_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_metis_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_neighbor_sample_cpu.so\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_relabel_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_rw_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_saint_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_sample_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_spmm_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/_version_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/add.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/bandwidth.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/cat.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/coalesce.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/convert.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/diag.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/eye.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/index_select.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/masked_select.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/matmul.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/metis.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/mul.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/narrow.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/permute.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/reduce.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/rw.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/saint.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/sample.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/select.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/spadd.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/spmm.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/spspmm.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/storage.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/tensor.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/testing.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/transpose.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/typing.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse/utils.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse-0.6.17.dist-info/LICENSE\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse-0.6.17.dist-info/METADATA\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse-0.6.17.dist-info/WHEEL\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse-0.6.17.dist-info/top_level.txt\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_sparse-0.6.17.dist-info/RECORD\
+\[CloseCurlyQuote]
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for torch-sparse (setup.py) ... done
+  Created wheel for torch-sparse: \
+filename=torch_sparse-0.6.17-cp39-cp39-linux_x86_64.whl size=1010982 \
+sha256=3eafc3c2e6c3bf161fb7ea9e57a6fbf3192a2967029ce6e81e6d19cd2734b0f2
+  Stored in directory: \
+/tmp/pip-ephem-wheel-cache-1y92wov3/wheels/f8/43/54/\
+bcb8acdd1109bd1e4c71106747af298d0315cdf3f090b2ae43
+Successfully built torch-sparse
+Installing collected packages: numpy, scipy, torch-sparse
+  changing mode of /home/amano/miniconda3/bin/f2py to 775
+  changing mode of /home/amano/miniconda3/bin/f2py3 to 775
+  changing mode of /home/amano/miniconda3/bin/f2py3.9 to 775
+Successfully installed numpy-1.24.3 scipy-1.10.1 torch-sparse-0.6.17
+(base) pip install --verbose --no-cache-dir torch-cluster
+Using pip 22.2.2 from /home/amano/miniconda3/lib/python3.9/site-packages/pip \
+(python 3.9)
+Collecting torch-cluster
+  Downloading torch_cluster-1.6.1.tar.gz (53 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 53.8/53.8 kB 11.2 MB/s eta 0:00:00
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info
+  writing /tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/PKG-INFO
+  writing dependency_links to \
+/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/dependency_links.txt
+  writing requirements to \
+/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/requires.txt
+  writing top-level names to \
+/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/top_level.txt
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  reading manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \
+\[OpenCurlyQuote]/tmp/pip-pip-egg-info-ap1nbsvv/torch_cluster.egg-info/\
+SOURCES.txt\[CloseCurlyQuote]
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: scipy in \
+./miniconda3/lib/python3.9/site-packages (from torch-cluster) (1.10.1)
+Requirement already satisfied: numpy<1.27.0,>=1.19.5 in \
+./miniconda3/lib/python3.9/site-packages (from scipy->torch-cluster) (1.24.3)
+Building wheels for collected packages: torch-cluster
+  Running command python setup.py bdist_wheel
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-cpython-39
+  creating build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/__init__.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/fps.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/graclus.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/grid.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/knn.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/nearest.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/radius.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/rw.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/sampler.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  copying torch_cluster/testing.py -> \
+build/lib.linux-x86_64-cpython-39/torch_cluster
+  running egg_info
+  writing torch_cluster.egg-info/PKG-INFO
+  writing dependency_links to torch_cluster.egg-info/dependency_links.txt
+  writing requirements to torch_cluster.egg-info/requires.txt
+  writing top-level names to torch_cluster.egg-info/top_level.txt
+  reading manifest file \[OpenCurlyQuote]torch_cluster.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  reading manifest template \[OpenCurlyQuote]MANIFEST.in\[CloseCurlyQuote]
+  warning: no previously-included files matching \[OpenCurlyQuote]*\
+\[CloseCurlyQuote] found under directory \[OpenCurlyQuote]test\
+\[CloseCurlyQuote]
+  adding license file \[OpenCurlyQuote]LICENSE\[CloseCurlyQuote]
+  writing manifest file \[OpenCurlyQuote]torch_cluster.egg-info/SOURCES.txt\
+\[CloseCurlyQuote]
+  running build_ext
+  building \[OpenCurlyQuote]torch_cluster._fps_cpu\[CloseCurlyQuote] \
+extension
+  creating build/temp.linux-x86_64-cpython-39
+  creating build/temp.linux-x86_64-cpython-39/csrc
+  creating build/temp.linux-x86_64-cpython-39/csrc/cpu
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/fps_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/fps_cpu.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_fps_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/fps.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/fps.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_fps_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/fps_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/fps.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_fps_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._graclus_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/graclus_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/graclus_cpu.o -O2 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_graclus_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/graclus.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/graclus.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_graclus_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/graclus_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/graclus.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_graclus_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._grid_cpu\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/grid_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/grid_cpu.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_grid_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/grid.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/grid.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_grid_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/grid_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/grid.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_grid_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._knn_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/knn_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/knn_cpu.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_knn_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/knn.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/knn.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_knn_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/knn_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/knn.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_knn_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._nearest_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/nearest.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/nearest.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_nearest_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/nearest.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_nearest_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._radius_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/radius_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/radius_cpu.o -O2 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_radius_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/radius.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/radius.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_radius_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/radius_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/radius.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_radius_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._rw_cpu\[CloseCurlyQuote] extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/rw_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/rw_cpu.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_rw_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/rw.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/rw.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_rw_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/rw_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/rw.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_rw_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._sampler_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/cpu/sampler_cpu.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/sampler_cpu.o -O2 \
+-Wno-sign-compare -DAT_PARALLEL_OPENMP -fopenmp \
+-DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\\\
+\[CloseCurlyDoubleQuote]_gcc\\\[CloseCurlyDoubleQuote] -DPYBIND11_STDLIB=\\\
+\[CloseCurlyDoubleQuote]_libstdcpp\\\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_sampler_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/sampler.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/sampler.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_sampler_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/cpu/sampler_cpu.o \
+build/temp.linux-x86_64-cpython-39/csrc/sampler.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_sampler_cpu.so -s
+  building \[OpenCurlyQuote]torch_cluster._version_cpu\[CloseCurlyQuote] \
+extension
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-cc -Wno-unused-result \
+-Wsign-compare -DNDEBUG -O2 -Wall -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-I/home/amano/miniconda3/include -march=nocona -mtune=haswell \
+-ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 \
+-ffunction-sections -pipe -isystem /home/amano/miniconda3/include \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include -fPIC -DWITH_PYTHON -Icsrc \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/torch/csrc/\
+api/include \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/TH \
+-I/home/amano/miniconda3/lib/python3.9/site-packages/torch/include/THC \
+-I/home/amano/miniconda3/include/python3.9 -c csrc/version.cpp -o \
+build/temp.linux-x86_64-cpython-39/csrc/version.o -O2 -Wno-sign-compare \
+-DAT_PARALLEL_OPENMP -fopenmp -DTORCH_API_INCLUDE_EXTENSION_H \
+-DPYBIND11_COMPILER_TYPE=\\\[CloseCurlyDoubleQuote]_gcc\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_STDLIB=\\\[CloseCurlyDoubleQuote]_libstdcpp\\\
+\[CloseCurlyDoubleQuote] \
+-DPYBIND11_BUILD_ABI=\\\[CloseCurlyDoubleQuote]_cxxabi1011\\\
+\[CloseCurlyDoubleQuote] -DTORCH_EXTENSION_NAME=_version_cpu \
+-D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+  /home/amano/miniconda3/bin/x86_64-conda-linux-gnu-c++ -shared -Wl,-O2 \
+-Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-L/home/amano/miniconda3/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed \
+-Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+-Wl,--disable-new-dtags -Wl,--gc-sections \
+-Wl,-rpath,/home/amano/miniconda3/lib \
+-Wl,-rpath-link,/home/amano/miniconda3/lib -L/home/amano/miniconda3/lib \
+-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong \
+-fno-plt -O2 -ffunction-sections -pipe -isystem \
+/home/amano/miniconda3/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem \
+/home/amano/miniconda3/include \
+build/temp.linux-x86_64-cpython-39/csrc/version.o \
+-L/home/amano/miniconda3/lib/python3.9/site-packages/torch/lib -lc10 -ltorch \
+-ltorch_cpu -ltorch_python -o \
+build/lib.linux-x86_64-cpython-39/torch_cluster/_version_cpu.so -s
+  /home/amano/miniconda3/lib/python3.9/site-packages/setuptools/command/\
+install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. \
+Use build and pip and other standards-based tools.
+    warnings.warn(
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/__init__.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/fps.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/graclus.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/grid.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/knn.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/nearest.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/radius.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/rw.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/sampler.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/testing.py -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_fps_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_graclus_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_grid_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_knn_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_nearest_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_radius_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_rw_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_sampler_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  copying build/lib.linux-x86_64-cpython-39/torch_cluster/_version_cpu.so -> \
+build/bdist.linux-x86_64/wheel/torch_cluster
+  running install_egg_info
+  Copying torch_cluster.egg-info to \
+build/bdist.linux-x86_64/wheel/torch_cluster-1.6.1-py3.9.egg-info
+  running install_scripts
+  adding license file \[OpenCurlyDoubleQuote]LICENSE\[CloseCurlyDoubleQuote] \
+(matched pattern \[OpenCurlyDoubleQuote]LICEN[CS]E*\[CloseCurlyDoubleQuote])
+  creating build/bdist.linux-x86_64/wheel/torch_cluster-1.6.1.dist-info/WHEEL
+  creating \
+\[OpenCurlyQuote]/tmp/pip-wheel-cc2dno_m/torch_cluster-1.6.1-cp39-cp39-linux_\
+x86_64.whl\[CloseCurlyQuote] and adding \
+\[OpenCurlyQuote]build/bdist.linux-x86_64/wheel\[CloseCurlyQuote] to it
+  adding \[OpenCurlyQuote]torch_cluster/__init__.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_fps_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_graclus_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_grid_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_knn_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_nearest_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_radius_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_rw_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_sampler_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/_version_cpu.so\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/fps.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/graclus.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/grid.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/knn.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/nearest.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/radius.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/rw.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/sampler.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster/testing.py\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster-1.6.1.dist-info/LICENSE\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster-1.6.1.dist-info/METADATA\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster-1.6.1.dist-info/WHEEL\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster-1.6.1.dist-info/top_level.txt\
+\[CloseCurlyQuote]
+  adding \[OpenCurlyQuote]torch_cluster-1.6.1.dist-info/RECORD\
+\[CloseCurlyQuote]
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for torch-cluster (setup.py) ... done
+  Created wheel for torch-cluster: \
+filename=torch_cluster-1.6.1-cp39-cp39-linux_x86_64.whl size=721408 \
+sha256=9c552a20bb64a5120b66b977c4861a0f31d4bd5b039432172a75585e9b91ec29
+  Stored in directory: \
+/tmp/pip-ephem-wheel-cache-_t06u1ng/wheels/77/5a/b9/\
+b61ba7d7a2e314173db70b38be991ddedc0225a4812bed2dc7
+Successfully built torch-cluster
+Installing collected packages: torch-cluster
+Successfully installed torch-cluster-1.6.1
+(base) pip install torch-geometric
+Collecting torch-geometric
+  Downloading torch_geometric-2.3.1.tar.gz (661 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 661.6/661.6 kB 5.5 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: tqdm in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (4.64.1)
+Collecting scikit-learn
+  Downloading \
+scikit_learn-1.2.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl \
+(9.6 MB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501 9.6/9.6 MB 10.1 MB/s eta 0:00:00
+Requirement already satisfied: numpy in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (1.24.3)
+Requirement already satisfied: jinja2 in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (3.1.2)
+Requirement already satisfied: pyparsing in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (3.0.9)
+Requirement already satisfied: scipy in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (1.10.1)
+Requirement already satisfied: psutil>=5.8.0 in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (5.9.0)
+Requirement already satisfied: requests in \
+./miniconda3/lib/python3.9/site-packages (from torch-geometric) (2.28.1)
+Requirement already satisfied: MarkupSafe>=2.0 in \
+./miniconda3/lib/python3.9/site-packages (from jinja2->torch-geometric) (2.1.1)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in \
+./miniconda3/lib/python3.9/site-packages (from requests->torch-geometric) \
+(1.26.12)
+Requirement already satisfied: charset-normalizer<3,>=2 in \
+./miniconda3/lib/python3.9/site-packages (from requests->torch-geometric) \
+(2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in \
+./miniconda3/lib/python3.9/site-packages (from requests->torch-geometric) (3.4)
+Requirement already satisfied: certifi>=2017.4.17 in \
+./miniconda3/lib/python3.9/site-packages (from requests->torch-geometric) \
+(2022.9.24)
+Collecting joblib>=1.1.1
+  Downloading joblib-1.2.0-py3-none-any.whl (297 kB)
+     \:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\:2501\
+\:2501 298.0/298.0 kB 9.8 MB/s eta 0:00:00
+Collecting threadpoolctl>=2.0.0
+  Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+Building wheels for collected packages: torch-geometric
+  Building wheel for torch-geometric (pyproject.toml) ... done
+  Created wheel for torch-geometric: \
+filename=torch_geometric-2.3.1-py3-none-any.whl size=910459 \
+sha256=b8b5638e715e7df9c301a5d74ac3a3f9663ebb6fd0016bfd0d18a1ced03a8ef5
+  Stored in directory: \
+/home/amano/.cache/pip/wheels/75/cc/0c/\
+029f33b5cb29c590a061faf5202ea24956388bba7f1af50f2e
+Successfully built torch-geometric
+Installing collected packages: threadpoolctl, joblib, scikit-learn, \
+torch-geometric
+Successfully installed joblib-1.2.0 scikit-learn-1.2.2 threadpoolctl-3.1.0 \
+torch-geometric-2.3.1
+(base) python
+Python 3.9.13 (main, Oct 13 2022, 21:15:33) 
+[GCC 11.2.0] :: Anaconda, Inc. on linux
+Type \[OpenCurlyDoubleQuote]help\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]copyright\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]credits\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]license\[CloseCurlyDoubleQuote] for more information.
+>>> from torch_geometric.datasets import Planetoid
+>>> dataset = Planetoid(root=\[CloseCurlyQuote]/tmp/Cora\[CloseCurlyQuote], \
+name=\[CloseCurlyQuote]Cora\[CloseCurlyQuote])
+Downloading https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.x
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.tx
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.allx
+Downloading https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.y
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.ty
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.ally
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.graph
+Downloading \
+https://github.com/kimiyoung/planetoid/raw/master/data/ind.cora.test.index
+Processing...
+Done!
+>>> import torch
+>>> import torch.nn.functional as F
+>>> from torch_geometric.nn import GCNConv
+>>> 
+>>> class Net(torch.nn.Module):
+...     def __init__(self):
+...         super(Net, self).__init__()
+...         self.conv1 = GCNConv(dataset.num_node_features, 16)
+...         self.conv2 = GCNConv(16, dataset.num_classes)
+... 
+>>>     def forward(self, data):
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    def forward(self, data):
+IndentationError: unexpected indent
+>>>         x, edge_index = data.x, data.edge_index
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    x, edge_index = data.x, data.edge_index
+IndentationError: unexpected indent
+>>> 
+>>>         x = self.conv1(x, edge_index)
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    x = self.conv1(x, edge_index)
+IndentationError: unexpected indent
+>>>         x = F.relu(x)
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    x = F.relu(x)
+IndentationError: unexpected indent
+>>>         x = F.dropout(x, training=self.training)
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    x = F.dropout(x, training=self.training)
+IndentationError: unexpected indent
+>>>         x = self.conv2(x, edge_index)
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    x = self.conv2(x, edge_index)
+IndentationError: unexpected indent
+>>> 
+>>>         return F.log_softmax(x, dim=1)
+  File \[OpenCurlyDoubleQuote]<stdin>\[CloseCurlyDoubleQuote], line 1
+    return F.log_softmax(x, dim=1)
+IndentationError: unexpected indent
+>>> import torch
+>>> import torch.nn.functional as F
+>>> from torch_geometric.nn import GCNConv
+>>> class Net(torch.nn.Module):
+...   def __init__(self):
+...     super(Net, self).__init__()
+...     self.conv1 = GCNConv(dataset.num_node_features, 16)
+...     self.conv2 = GCNConv(16, dataset.num_classes)
+...   def forward(self, data):
+...     x, edge_index = data.x, data.edge_index
+...     x = self.conv1(x, edge_index)
+...     x = F.relu(x)
+...     x = F.dropout(x, training=self.training)
+...     x = self.conv2(x, edge_index)
+...     return F.log_softmax(x, dim=1)
+... 
+>>> device = torch.device(\[OpenCurlyQuote]cuda\[CloseCurlyQuote] if \
+torch.cuda.is_available() else \[OpenCurlyQuote]cpu\[CloseCurlyQuote])
+>>> model = Net().to(device)
+>>> data = dataset[0].to(device)
+>>> optimizer = torch.optim.Adam(model.parameters(), lr=0.01, \
+weight_decay=5e-4)
+>>> 
+>>> model.train() #\:30e2\:30c7\:30eb\:3092\:8a13\:7df4\:30e2\:30fc\:30c9\
+\:306b\:3059\:308b\:3002
+Net(
+  (conv1): GCNConv(1433, 16)
+  (conv2): GCNConv(16, 7)
+)
+>>> for epoch in range(200):
+...     optimizer.zero_grad()
+...     out = model(data)
+...     loss = F.nll_loss(out[data.train_mask], data.y[data.train_mask])
+...     loss.backward()
+...     optimizer.step()
+... 
+
+>>> 
+>>> model.eval() \
+#\:30e2\:30c7\:30eb\:3092\:8a55\:4fa1\:30e2\:30fc\:30c9\:306b\:3059\:308b\:3002
+Net(
+  (conv1): GCNConv(1433, 16)
+  (conv2): GCNConv(16, 7)
+)
+>>> _, pred = model(data).max(dim=1)
+>>> correct = \
+float(pred[data.test_mask].eq(data.y[data.test_mask]).sum().item())
+>>> acc = correct / data.test_mask.sum().item()
+>>> print(\[OpenCurlyQuote]Acc: {:.4f}\[CloseCurlyQuote] .format(acc))
+Acc: 0.8060
+>>> 
+\
+\>", "Text",
+ CellChangeTimes->{{3.894609471331058*^9, 3.8946095535832977`*^9}, {
+  3.8946097695061817`*^9, 
+  3.894609771460512*^9}},ExpressionUUID->"ff9be97d-9ab3-45ff-a218-\
+36b28d3465a8"],
+
+Cell["\<\
+https://buildersbox.corp-sansan.com/entry/2021/05/27/110000#%E3%82%B0%E3%83%\
+A9%E3%83%95%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%B3\
+\>", "Text",
+ CellChangeTimes->{
+  3.894523917937417*^9},ExpressionUUID->"8236584d-4fdd-4278-ab98-\
+2b52eb040f0f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Mac OS X x86 (64-bit) \
+(2023\:5e741\:670830\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"cf925eb5-982a-4bd6-8842-10edae03c53f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 189, 3, 98, "Title",ExpressionUUID->"f219508f-9d3a-4e15-9f2f-df42d9d58bb1"],
+Cell[772, 27, 218, 4, 35, "Text",ExpressionUUID->"4a98f17d-1a60-442e-b2ef-f70c7ff13875"],
+Cell[CellGroupData[{
+Cell[1015, 35, 270, 6, 58, "Input",ExpressionUUID->"2a3171b8-3adc-4b10-af28-a301361c65a9"],
+Cell[1288, 43, 1508, 32, 187, "Output",ExpressionUUID->"3910ebad-e3df-4816-8a0c-338456e90e2e"]
+}, Open  ]],
+Cell[2811, 78, 265, 4, 35, "Text",ExpressionUUID->"6d3482e7-7252-44e5-b8b6-888d117d8580"],
+Cell[CellGroupData[{
+Cell[3101, 86, 970, 26, 66, "Input",ExpressionUUID->"61e31880-0a3c-44c0-bfb8-93c8cc813876"],
+Cell[4074, 114, 875, 24, 70, "Output",ExpressionUUID->"5ca81626-b43c-422c-ace8-6c751fbaf950"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4986, 143, 365, 8, 58, "Input",ExpressionUUID->"9f0c1f76-b719-4869-a5d0-1b26162a099a"],
+Cell[5354, 153, 4840, 101, 238, "Output",ExpressionUUID->"add60175-325f-45d3-8826-c33b757830ca"]
+}, Open  ]],
+Cell[10209, 257, 346, 5, 35, "Text",ExpressionUUID->"a7e06363-b023-42f4-8779-f8281b950b7a"],
+Cell[CellGroupData[{
+Cell[10580, 266, 246, 5, 58, "Input",ExpressionUUID->"a6047f0d-f9d5-4ba7-8df3-1da145afd7d4"],
+Cell[10829, 273, 1845, 60, 139, "Output",ExpressionUUID->"3b4f534f-ff3f-4921-9d05-204fb08752bf"]
+}, Open  ]],
+Cell[12689, 336, 272, 4, 35, "Text",ExpressionUUID->"630a0b4c-47d8-4098-ba25-48eaad869c2a"],
+Cell[CellGroupData[{
+Cell[12986, 344, 244, 5, 58, "Input",ExpressionUUID->"3ad06b21-50aa-4e7e-a288-a2929fee21c2"],
+Cell[13233, 351, 1821, 61, 139, "Output",ExpressionUUID->"34e1b5f6-0669-48f0-95ca-61783229f455"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15091, 417, 455, 13, 58, "Input",ExpressionUUID->"2918185e-8bf4-4784-99ee-79468007bfe5"],
+Cell[15549, 432, 648, 17, 48, "Output",ExpressionUUID->"d2094208-c8aa-4e8f-b343-383274419855"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16234, 454, 562, 13, 58, "Input",ExpressionUUID->"a9b2d279-34f4-4fd6-87ea-4b3c6e190f97"],
+Cell[16799, 469, 870, 21, 348, "Output",ExpressionUUID->"0fd1510c-d03b-4966-bd14-5c2235165931"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17706, 495, 368, 10, 58, "Input",ExpressionUUID->"2ff2f8f0-f5e7-4855-9028-784508511543"],
+Cell[18077, 507, 584, 11, 390, "Output",ExpressionUUID->"d9a6a26f-c657-47a1-ac1b-f7b507eaa596"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18698, 523, 159, 3, 67, "Section",ExpressionUUID->"5434a2c3-cf37-41f7-be9b-b9a7ef0436ba"],
+Cell[18860, 528, 149, 3, 35, "Text",ExpressionUUID->"39567308-75aa-4e4f-989a-7ce99eaddd07"],
+Cell[19012, 533, 193, 3, 35, "Text",ExpressionUUID->"b4079c82-9070-4a9c-92db-9e1b7997887f"],
+Cell[19208, 538, 224, 6, 35, "Text",ExpressionUUID->"6d5cde4a-92fd-4f39-b594-946238ece6b5"],
+Cell[19435, 546, 162782, 2850, 43712, "Text",ExpressionUUID->"ff9be97d-9ab3-45ff-a218-36b28d3465a8"],
+Cell[182220, 3398, 269, 6, 81, "Text",ExpressionUUID->"8236584d-4fdd-4278-ab98-2b52eb040f0f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
